@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Product — Markhor Accessories</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Markhor Accessories</h1>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/products.html">Products</a>
+      <a href="/cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <main id="product-detail"></main>
+
+  <footer><p>© 2026 Markhor Accessories</p></footer>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const slug = params.get('slug');
+
+    (async () => {
+      const res = await fetch('/data/products.json');
+      const products = await res.json();
+      const p = products.find(x => x.slug === slug);
+      if (!p) return document.getElementById('product-detail').innerHTML = '<p>Product not found</p>';
+
+      const container = document.getElementById('product-detail');
+      container.innerHTML = `
+        <div class="product-page">
+          <img src="${p.images[0]}" alt="${p.name}" />
+          <div>
+            <h2>${p.name}</h2>
+            <p>Rs. ${p.price}</p>
+            <p>${p.description}</p>
+            <label>Quantity: <input type="number" id="qty" value="1" min="1" /></label>
+            <button id="add-to-cart" class="btn">Add to Cart</button>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('add-to-cart').onclick = () => {
+        const qty = +document.getElementById('qty').value;
+        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        cart.push({ id: p.id, name: p.name, price: p.price, qty });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert('Added to cart');
+        location.href = '/cart.html';
+      };
+    })();
+  </script>
+</body>
+</html>

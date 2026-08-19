@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cart — Markhor Accessories</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Markhor Accessories</h1>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/products.html">Products</a>
+      <a href="/cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <div id="cart-total"></div>
+    <a href="/checkout.html" class="btn">Checkout</a>
+  </main>
+
+  <footer><p>© 2026 Markhor Accessories</p></footer>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const container = document.getElementById('cart-items');
+    let total = 0;
+    cart.forEach((item, idx) => {
+      const row = document.createElement('div');
+      row.textContent = `${item.name} x ${item.qty} — Rs. ${item.price * item.qty}`;
+      container.appendChild(row);
+      total += item.price * item.qty;
+    });
+    document.getElementById('cart-total').textContent = `Total: Rs. ${total}`;
+  </script>
+</body>
+</html>

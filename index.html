@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Markhor Accessories</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Markhor Accessories</h1>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/products.html">Products</a>
+      <a href="/cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Fast Charging + Phone Protection</h2>
+      <p>Premium mobile accessories at honest prices.</p>
+      <a href="/products.html" class="btn">Shop Now</a>
+    </section>
+
+    <section class="featured">
+      <h3>Featured Products</h3>
+      <div id="featured-grid" class="grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Markhor Accessories</p>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    // Load 4 featured products
+    (async () => {
+      const res = await fetch('/data/products.json');
+      const products = await res.json();
+      const grid = document.getElementById('featured-grid');
+      products.slice(0,4).forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${p.images[0]}" alt="${p.name}" loading="lazy" />
+          <h4>${p.name}</h4>
+          <div>Rs. ${p.price}</div>
+          <a href="/product.html?slug=${p.slug}" class="btn-sm">View</a>
+        `;
+        grid.appendChild(card);
+      });
+    })();
+  </script>
+</body>
+</html>
