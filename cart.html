@@ -1,41 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Cart — Markhor Accessories</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="/css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart — Markhor Accessories</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <h1>Markhor Accessories</h1>
-    <nav>
-      <a href="/index.html">Home</a>
-      <a href="/products.html">Products</a>
-      <a href="/cart.html">Cart</a>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+            <img src="/public/images/logo.png" alt="Markhor Accessories" style="height:40px; width:auto; margin-right:8px;" />
+            <span class="logo-text">Markhor <span class="logo-accent">Accessories</span></span>
+        </a>
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+    <li><a href="/products.html" >Products</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li>
+        <a href="/cart.html" class="cart-btn" >
+            🛒 <span id="cart-count">0</span>
+        </a>
+                </li>
+            </ul>
+            <button class="mobile-menu" aria-label="Menu">☰</button>
+        </div>
     </nav>
-  </header>
 
-  <main>
-    <h2>Your Cart</h2>
-    <div id="cart-items"></div>
-    <div id="cart-total"></div>
-    <a href="/checkout.html" class="btn">Checkout</a>
-  </main>
+    <section class="cart-page">
+        <div class="container">
+            <div class="section-header">
+                <h1>Shopping <span class="highlight">Cart</span></h1>
+            </div>
+            <div class="cart-grid">
+                <div class="cart-items" id="cartItems">
+                    <!-- Loaded by JS -->
+                </div>
+                <div class="cart-summary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal">Rs. 0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span id="shipping">Free</span>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="total">Rs. 0</span>
+                    </div>
+                    <a href="/checkout.html" class="btn-primary checkout-btn" style="width:100%; text-align:center;">
+                        Proceed to Checkout →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer><p>© 2026 Markhor Accessories</p></footer>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+            <img src="/public/images/logo.png" alt="Markhor Accessories" style="height:40px; width:auto; margin-right:8px;" />
+            <span class="logo-text">Markhor <span class="logo-accent">Accessories</span></span>
+        </a>
+                    <p>Premium mobile accessories for the modern lifestyle.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <a href="/products.html">All Products</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <a href="/contact.html">Contact Us</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <a href="tel:+923121784537">📞 +923121784537</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Markhor Accessories. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-  <script>
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    const container = document.getElementById('cart-items');
-    let total = 0;
-    cart.forEach((item, idx) => {
-      const row = document.createElement('div');
-      row.textContent = `${item.name} x ${item.qty} — Rs. ${item.price * item.qty}`;
-      container.appendChild(row);
-      total += item.price * item.qty;
-    });
-    document.getElementById('cart-total').textContent = `Total: Rs. ${total}`;
-  </script>
+    <script src="/js/main.js"></script>
+    <script src="/js/cart.js"></script>
 </body>
 </html>

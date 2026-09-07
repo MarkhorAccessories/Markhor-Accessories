@@ -1,57 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Markhor Accessories</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="/css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buy Premium Mobile Accessories in Pakistan | Markhor Accessories</title>
+    <meta name="description" content="Buy premium mobile accessories in Pakistan. Fast charging, earbuds, power banks & more. 100% COD available. Shop now at Markhor Accessories." />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <h1>Markhor Accessories</h1>
-    <nav>
-      <a href="/index.html">Home</a>
-      <a href="/products.html">Products</a>
-      <a href="/cart.html">Cart</a>
-    </nav>
-  </header>
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar">
+    <div class="container">
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <img src="/public/images/logo.png" alt="Markhor Accessories" style="height:40px; width:auto; margin-right:8px;" />
+            <span class="logo-text">Markhor <span class="logo-accent">Accessories</span></span>
+        </a>
 
-  <main>
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" placeholder="Search for products..." id="searchInput" />
+            <button onclick="searchProducts()">🔍</button>
+        </div>
+
+        <!-- Nav Links -->
+        <ul class="nav-links">
+            <li><a href="/index.html" class="active">Home</a></li>
+            <li><a href="/products.html">Products</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li>
+                <a href="/cart.html" class="cart-btn">
+                    🛒 <span id="cart-count">0</span>
+                </a>
+            </li>
+        </ul>
+        <button class="mobile-menu" aria-label="Menu">☰</button>
+    </div>
+</nav>
+
+    <!-- ===== HERO SECTION ===== -->
     <section class="hero">
-      <h2>Fast Charging + Phone Protection</h2>
-      <p>Premium mobile accessories at honest prices.</p>
-      <a href="/products.html" class="btn">Shop Now</a>
+        <div class="hero-overlay"></div>
+        <div class="hero-content container">
+            <h1 class="hero-title">
+                <span class="highlight">Elevate</span> Your Digital<br />Lifestyle
+            </h1>
+            <p class="hero-subtitle">
+                Premium mobile accessories engineered for performance,<br />
+                designed for those who demand the extraordinary.
+            </p>
+            <div class="hero-buttons">
+                <a href="/products.html" class="btn-primary">Explore Collection →</a>
+                <a href="/about.html" class="btn-secondary">Learn More</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Happy Customers</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4.9★</span>
+                    <span class="stat-label">Rating</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">COD Available</span>
+                </div>
+            </div>
+        </div>
     </section>
 
+    <!-- ===== FEATURED PRODUCTS ===== -->
     <section class="featured">
-      <h3>Featured Products</h3>
-      <div id="featured-grid" class="grid"></div>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">✦ Curated Collection</span>
+                <h2>Bestselling <span class="highlight">Accessories</span></h2>
+                <p>Handpicked essentials that combine functionality with timeless elegance.</p>
+            </div>
+            <div class="featured-grid" id="featuredGrid">
+                <!-- Products will be loaded by JS -->
+            </div>
+            <div class="section-footer">
+                <a href="/products.html" class="btn-primary-outline">View All Products →</a>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <footer>
-    <p>© 2026 Markhor Accessories</p>
-  </footer>
+    <!-- ===== CATEGORIES ===== -->
+<section class="categories">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">✦ Shop by Category</span>
+            <h2>Explore Our <span class="highlight">Collection</span></h2>
+            <p>Browse through our premium categories</p>
+        </div>
+        <div class="categories-grid">
+    <a href="/products.html?category=chargers" class="category-card">
+        <span class="category-icon">⚡</span>
+        <h3>Fast Charging</h3>
+        <p>PD & GaN technology</p>
+    </a>
+    <a href="/products.html?category=home-accessories" class="category-card">
+        <span class="category-icon">🏠</span>
+        <h3>Home Accessories</h3>
+        <p>Related Accessories</p>
+    </a>
+    <a href="/products.html?category=earbuds" class="category-card">
+        <span class="category-icon">🎧</span>
+        <h3>Audio Gear</h3>
+        <p>Premium earbuds</p>
+    </a>
+    <a href="/products.html?category=powerbanks" class="category-card">
+        <span class="category-icon">🔋</span>
+        <h3>Power Banks</h3>
+        <p>Stay charged anywhere</p>
+    </a>
+    <a href="/products.html?category=selfie-mounts" class="category-card">
+        <span class="category-icon">🤳</span>
+        <h3>Selfie & Mounts</h3>
+        <p>Selfie sticks & brackets</p>
+    </a>
+</div>
+    </div>
+</section>
 
-  <script src="/js/main.js"></script>
-  <script>
-    // Load 4 featured products
-    (async () => {
-      const res = await fetch('/data/products.json');
-      const products = await res.json();
-      const grid = document.getElementById('featured-grid');
-      products.slice(0,4).forEach(p => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-          <img src="${p.images[0]}" alt="${p.name}" loading="lazy" />
-          <h4>${p.name}</h4>
-          <div>Rs. ${p.price}</div>
-          <a href="/product.html?slug=${p.slug}" class="btn-sm">View</a>
-        `;
-        grid.appendChild(card);
-      });
-    })();
-  </script>
+    <!-- ===== WHY MARKHOR ===== -->
+    <section class="why-us">
+        <div class="container">
+            <div class="why-grid">
+                <div class="why-content">
+                    <span class="section-tag">✦ Why Choose Us</span>
+                    <h2>Premium Quality,<br /><span class="highlight">Authentic Experience</span></h2>
+                    <p>Every product is carefully selected and tested to ensure it meets our high standards of quality, durability, and design.</p>
+                    <ul class="why-list">
+                        <li>✓ <span>100% Authentic Products</span></li>
+                        <li>✓ <span>Free Shipping on all Orders</span></li>
+                        <li>✓ <span>7-Day Return Policy</span></li>
+                        <li>✓ <span>24/7 Customer Support</span></li>
+                    </ul>
+                    <a href="/products.html" class="btn-primary">Shop Now</a>
+                </div>
+                <div class="why-image">
+    <img src="/public/images/why-us.png" alt="Why Choose Markhor Accessories" class="why-us-image" />
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">✦ Testimonials</span>
+                <h2>What Our <span class="highlight">Customers Say</span></h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"The quality of the charging cable is exceptional. Fast charging and durable — highly recommend!"</p>
+                    <div class="customer">
+                        <span class="name">Ahmed Khan</span>
+                        <span class="location">Karachi</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Ordered the power bank and it arrived within 2 days. The build quality is premium and it lasts long."</p>
+                    <div class="customer">
+                        <span class="name">Sara Ali</span>
+                        <span class="location">Lahore</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Best accessories I've bought in Pakistan. The earbuds sound amazing and the packaging is premium."</p>
+                    <div class="customer">
+                        <span class="name">Usman Raza</span>
+                        <span class="location">Islamabad</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NEWSLETTER ===== -->
+    <!-- <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-box">
+                <h2>Join the <span class="highlight">Markhor</span> Community</h2>
+                <p>Subscribe for exclusive offers, new product alerts, and style inspiration.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required />
+                    <button type="submit" class="btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+            <img src="/public/images/logo.png" alt="Markhor Accessories" style="height:40px; width:auto; margin-right:8px;" />
+            <span class="logo-text">Markhor <span class="logo-accent">Accessories</span></span>
+                    </a>
+                    <p>Premium mobile accessories for the modern lifestyle.</p>
+                    <div class="social-links">
+    <a href="https://www.instagram.com/yourusername" target="_blank" aria-label="Instagram">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+    </a>
+    <a href="https://www.facebook.com/yourusername" target="_blank" aria-label="Facebook">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+        </svg>
+    </a>
+    <a href="https://www.tiktok.com/@yourusername" target="_blank" aria-label="TikTok">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/>
+            <path d="M15 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/>
+            <path d="M15 8V4h4v4"/>
+        </svg>
+    </a>
+    <a href="https://www.youtube.com/@yourusername" target="_blank" aria-label="YouTube">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+        </svg>
+    </a>
+</div>
+                </div>
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <a href="/products.html">All Products</a>
+                    <a href="/products.html?category=charging">Charging</a>
+                    <a href="/products.html?category=protection">Protection</a>
+                    <a href="/products.html?category=audio">Audio</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <a href="/contact.html">Contact Us</a>
+                    <a href="/about.html">About Us</a>
+                    <a href="#">Shipping Policy</a>
+                    <a href="#">Return Policy</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <a href="tel:+923121784537">📞 +923121784537</a>
+                    <a href="mailto:info@markhoraccessories26.com">markhoraccessories26@gmail.com</a>
+                    <a href="#">📍 Lahore, Pakistan</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Markhor Accessories. All rights reserved.</p>
+                <p>Made with ❤️ by Muhammad Ahmad Gohar</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+
+<script>
+    // ===== LOAD FEATURED PRODUCTS =====
+    document.addEventListener('DOMContentLoaded', async function() {
+        try {
+            const response = await fetch('/data/products.json');
+            const products = await response.json();
+            
+            // Sirf 4 featured products lo (pehle 4)
+            const featured = products.slice(0, 4);
+            const grid = document.getElementById('featuredGrid');
+            
+            if (!grid) return;
+            
+            grid.innerHTML = featured.map(function(product) {
+                return `
+                    <div class="product-card">
+                        ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+                        <div class="product-image">
+                            <img src="${product.images[0]}" alt="${product.name}" loading="lazy" />
+                        </div>
+                        <div class="product-info">
+                            <h3>${product.name}</h3>
+                            <div class="product-price">
+                                <span class="current">Rs. ${product.price.toLocaleString()}</span>
+                                ${product.compareAtPrice ? `<span class="original">Rs. ${product.compareAtPrice.toLocaleString()}</span>` : ''}
+                            </div>
+                            <div class="product-actions">
+                                <a href="/product.html?slug=${product.slug}" class="btn-view">View</a>
+                                <button onclick="addToCart('${product.id}', '${product.name}', ${product.price})" class="btn-add">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+        } catch (error) {
+            console.error('Error loading featured products:', error);
+            document.getElementById('featuredGrid').innerHTML = `
+                <div style="grid-column:1/-1; text-align:center; padding:20px; color:var(--muted);">
+                    <p>Unable to load products. Please refresh.</p>
+                </div>
+            `;
+        }
+    });
+</script>
+
+<!-- ===== FLOATING WHATSAPP BUTTON ===== -->
+<a href="https://wa.me/923121784537?text=Hi%20Markhor%20Accessories!%20I%20have%20a%20question%20about%20your%20products." 
+   class="whatsapp-float" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="whatsapp-tooltip">Chat with us! 💬</span>
+</a>
 </body>
 </html>
