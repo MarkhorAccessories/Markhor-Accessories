@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             }
             
             grid.innerHTML = filtered.map(product => `
-                <div class="product-card" data-id="${product.id}">
+                <div class="product-card" data-id="${product.id}" onclick="window.location.href='/product.html?slug=${product.slug}'" style="cursor:pointer;">
                     ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
                     <div class="product-image">
                         <img src="${product.images[0]}" alt="${product.name} - Buy Online in Pakistan | Markhor Accessories" loading="lazy" />
@@ -56,9 +56,9 @@ document.addEventListener('DOMContentLoaded', async function() {
                             ${product.compareAtPrice ? `<span class="original">Rs ${product.compareAtPrice.toLocaleString()}</span>` : ''}
                         </div>
                         <div class="product-actions">
-                            <a href="/product.html?slug=${product.slug}" class="btn-view">View</a>
-                            <button onclick="addToCart('${product.id}', '${product.name}', ${product.price}, 1)" class="btn-add">Add to Cart</button>
-                            <button onclick="orderNow('${product.id}', '${product.name}', ${product.price})" class="btn-order">Order Now</button>
+                            <a href="/product.html?slug=${product.slug}" class="btn-view" onclick="event.stopPropagation()">View</a>
+                            <button onclick="event.stopPropagation(); addToCart('${product.id}', '${product.name}', ${product.price}, 1)" class="btn-add">Add to Cart</button>
+                            <button onclick="event.stopPropagation(); orderNow('${product.id}', '${product.name}', ${product.price})" class="btn-order">Order Now</button>
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             );
             if (filtered.length > 0) {
                 grid.innerHTML = filtered.map(product => `
-                    <div class="product-card" data-id="${product.id}">
+                    <div class="product-card" data-id="${product.id}" onclick="window.location.href='/product.html?slug=${product.slug}'" style="cursor:pointer;">
                         ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
                         <div class="product-image">
                             <img src="${product.images[0]}" alt="${product.name}" loading="lazy" />
@@ -103,8 +103,8 @@ document.addEventListener('DOMContentLoaded', async function() {
                                 ${product.compareAtPrice ? `<span class="original">Rs ${product.compareAtPrice.toLocaleString()}</span>` : ''}
                             </div>
                             <div class="product-actions">
-                                <a href="/product.html?slug=${product.slug}" class="btn-view">View</a>
-                                <button onclick="addToCart('${product.id}', '${product.name}', ${product.price}, 1)" class="btn-add">Add to Cart</button>
+                                <a href="/product.html?slug=${product.slug}" class="btn-view" onclick="event.stopPropagation()">View</a>
+                                <button onclick="event.stopPropagation(); addToCart('${product.id}', '${product.name}', ${product.price}, 1)" class="btn-add">Add to Cart</button>
                             </div>
                         </div>
                     </div>
@@ -207,7 +207,6 @@ if (document.getElementById('productDetail')) {
 
 // ===== RENDER PRODUCT DETAIL =====
 function renderProductDetail(product) {
-    // ===== SEO: Dynamic Title =====
     document.title = `${product.name} - Price in Pakistan | Markhor Accessories`;
     
     const container = document.getElementById('productDetail');
@@ -217,7 +216,6 @@ function renderProductDetail(product) {
         `<li>${f}</li>`
     ).join('') : '';
     
-    // ===== IMAGE GALLERY HTML =====
     let galleryHTML = '';
     if (product.images && product.images.length > 0) {
         galleryHTML = `
@@ -262,7 +260,6 @@ function renderProductDetail(product) {
                 </div>
             ` : ''}
             
-            <!-- ===== QUANTITY SELECTOR ===== -->
             <div class="product-quantity">
                 <label>Quantity</label>
                 <div class="quantity-selector">
@@ -288,14 +285,10 @@ function renderProductDetail(product) {
         </div>
     `;
     
-    // ===== WHATSAPP =====
     setupWhatsAppShare(product);
-    
-    // ===== REVIEWS =====
     loadReviews(product.id);
     setupReviewForm(product.id);
     
-    // ===== RELATED PRODUCTS =====
     fetch('/data/products.json')
         .then(r => r.json())
         .then(allProducts => {
@@ -384,11 +377,11 @@ function loadRelatedProducts(products, currentProduct) {
     }
     
     container.innerHTML = related.map(product => `
-        <div class="recommendation-card">
+        <div class="recommendation-card" onclick="window.location.href='/product.html?slug=${product.slug}'" style="cursor:pointer;">
             <img src="${product.images[0]}" alt="${product.name}" loading="lazy" />
             <h4>${product.name}</h4>
             <span>Rs. ${product.price.toLocaleString()}</span>
-            <a href="/product.html?slug=${product.slug}" class="btn-view">View</a>
+            <a href="/product.html?slug=${product.slug}" class="btn-view" onclick="event.stopPropagation()">View</a>
         </div>
     `).join('');
 }

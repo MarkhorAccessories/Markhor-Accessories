@@ -127,27 +127,31 @@
         "stock": 40
     },
     {
-        "id": "speaker-001",
-        "name": "Bluetooth Speaker Pro",
-        "slug": "bluetooth-speaker-pro",
-        "price": 3999,
-        "compareAtPrice": 5499,
-        "category": "home-accessories",
-        "badge": "Sale!",
-        "description": "Portable Bluetooth speaker with powerful sound, deep bass, and 12-hour battery life.",
-        "images": ["/public/images/products/speaker-1.webp"],
-        "stock": 20
-    },
-    {
         "id": "watch-001",
-        "name": "Smart Watch Pro",
-        "slug": "smart-watch-pro",
-        "price": 8999,
-        "compareAtPrice": 12999,
+        "name": "Max 573 Ultra 3 Seven + One Smart Watch",
+        "slug": "smart-watch-ultra-3",
+        "price": 1590,
+        "compareAtPrice": 1850,
         "category": "watches",
         "badge": "Sale!",
-        "description": "Premium smart watch with AMOLED display, heart rate monitor, and GPS tracking.",
-        "images": ["/public/images/products/watch-1.webp"],
+        "description": "Upgrade your everyday style with the Max 573 Ultra 3 Seven + One Smart Watch. Featuring a large 45mm AMOLED display, Bluetooth calling, voice assistant, multiple sports modes and a stylish premium design, it is made for everyday use, fitness, calls and notifications.",
+        "images": ["/public/images/watch-1.png",
+                    "/public/images/watch-2.png",
+                "/public/images/watch-3.png"],
+        "stock": 12
+    },
+    {
+        "id": "watch-002",
+        "name": "Ultra 3 Max 1150 Smart Watch with Earbuds | Smart Watch + Wireless Earbuds Combo",
+        "slug": "smart-watch-ultra-3-earbuds",
+        "price": 1999,
+        "compareAtPrice": 2800,
+        "category": "watches",
+        "badge": "Sale!",
+        "description": "Upgrade your everyday style with the Ultra 3 Max 1150 Smart Watch with Earbuds. This stylish combo gives you a smartwatch and wireless earbuds in one convenient package, making it a great choice for everyday use, calls, music, fitness and entertainment.",
+        "images": ["/public/images/ultra-1.webp",
+                    "/public/images/ultra-3.png",
+                "/public/images/ultra-2.webp"],
         "stock": 12
     },
     {
@@ -381,6 +385,28 @@
         "images": ["/public/images/power-1.jpeg",
                     "/public/images/power-2.jpeg",
                 "/public/images/power-3.jpeg"],
+        "stock": 15
+    },
+    {
+        "id": "powerbank-3",
+        "name": "Cygnett 5000mAh Dual Magnet Wireless Power Bank",
+        "slug": "5000mah-power-bank-cygnett",
+        "price": 2499,
+        "compareAtPrice": 3500,
+        "category": "powerbanks",
+        "badge": "sale!",
+        "description": "Keep your compatible smartphone powered on the go with the Cygnett 5000mAh Dual Magnet Wireless Power Bank. Its compact magnetic design attaches conveniently to compatible devices, making wireless charging simple and convenient without the hassle of carrying a separate charging cable.",
+        "features": [
+        "🔋 5000mAh High Capacity Battery",
+        "🧲 Dual Magnetic Design",
+        "⚡ Wireless Charging",
+        "🎒 Compact & Portable",
+        "🔋 LED Battery Indicator",
+        "🔌 Wired Charging Option"
+    ],
+        "images": ["/public/images/bank-2.jpeg",
+                    "/public/images/bank-1.jpeg",
+                "/public/images/bank-3.jpeg"],
         "stock": 15
     },
     {
