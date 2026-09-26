@@ -456,5 +456,29 @@
         "/public/images/neck-4.webp"
     ],
     "stock": 20
+},
+{
+    "id": "mk-cooling-fan-001",
+    "name": "Mobile Cooling Fan",
+    "slug": "mobile-cooling-fan",
+    "price": 1899,
+    "compareAtPrice": 2100,
+    "category": "cooling-fans",
+    "badge": "New",
+    "description": "Portable mobile cooling fan for gaming and heavy usage. Keeps your phone cool during long gaming sessions. Universal clip design fits all smartphones.",
+    "features": [
+        "Universal Clip Design",
+        "Fits All Smartphones",
+        "Quiet Operation",
+        "USB Powered",
+        "Lightweight & Portable"
+    ],
+    "images": [
+        "/public/images/mobile-fan-4.png",
+        "/public/images/mobile-fan-1.png",
+        "/public/images/mobile-fan-2.png",
+        "/public/images/mobile-fan-3.png"
+    ],
+    "stock": 35
 }
 ]
