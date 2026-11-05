@@ -53,21 +53,6 @@
         "stock": 30
     },
     {
-        "id": "earbuds-001",
-        "name": "Airs Pro 2 TWS wireless Bluetooth Earbuds | Charging cable and holding strip included",
-        "slug": "joyroom-jbuds-series",
-        "price": 980,
-        "compareAtPrice": 1300,
-        "category": "earbuds",
-        "badge": "Sale!",
-        "description": "Premium wireless earbuds with crystal clear sound, long battery life, and comfortable fit for all-day use.",
-        "images": ["/public/images/pro2-4.jpeg",
-                "/public/images/pro2-2.jpeg",
-                "/public/images/pro2-3.jpeg",
-                "/public/images/pro2-1.jpeg"],
-        "stock": 25
-    },
-    {
         "id": "earbuds-002",
         "name": "Apple AirPods Pro 2 Master Clone – Premium Wireless Earbuds",
         "slug": "ldnio-t13-wireless-stereo",
